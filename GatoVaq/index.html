@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Gato Chido</title>
+</head>
+<body>
+  <div id="instructions">
+    <div id="instructions-content">
+      <h1>Instrucciones del Juego</h1>
+      <p><strong>Cómo jugar:</strong></p>
+      <ul>
+        <li>Mueve el gato con el ratón.</li>
+        <li>Haz clic para disparar a tus enemigos.</li>
+        <li>Destruye a los enemigos para ganar puntos.</li>
+      </ul>
+      <p><strong>Puntajes:</strong></p>
+      <ul>
+        <li>Enemigo 1: 2 punto</li>
+        <li>Enemigo 2: 4 puntos</li>
+        <li>Enemigo 3: 6 puntos</li>
+        <li>Enemigo 4: 8 puntos</li>
+      </ul>
+      <button id="start-button">Comenzar Juego</button>
+    </div>
+  </div>
+
+  <span id="lives">Lives:<i>5</i></span>
+  <span id="times"></span>
+  <span id="score">Score: <i>0</i></span>
+  <div class="Gato" id="Gato"></div>
+  <audio src="audio/laser.mp3" id="laser"></audio>
+  <audio src="audio/explosion.mp3" id="explosion"></audio>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Gato {
+    width: 80px;
+    height: 80px;
+    background-image: url('../img/Gato.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    bottom: 50px;
+    left: calc(50vw - 40px);
+}
+
+body {
+    background-image: url('../img/espacio.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.bala {
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle at 20%, #ffcc00, #ff9900); /* Gradiente para un efecto de iluminación */
+    border-radius: 50%; /* Forma redonda */
+    position: absolute;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4); /* Sombra para profundidad */
+    border: 2px solid #ff6600; /* Borde oscuro para definición */
+    transform: scale(1.2); /* Escala para hacer la bala un poco más grande */
+    animation: reboteBala 0.3s ease-in-out infinite;
+}
+
+@keyframes reboteBala {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.enemigo {
+    width: 80px; /* Asegúrate de que este tamaño coincida con el tamaño usado en el cálculo de posición */
+    height: 50px;
+    background-image: url('../img/enemigo1.png'); /* Ajusta para cada tipo si es necesario */
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0; /* Inicialmente en la parte superior */
+    animation: aparecerEnemigo 0.5s ease-out, movimientoEnemigo 1s ease-in-out infinite;
+}
+
+.enemigo2 {
+    width: 80px;
+    height: 50px;
+    background-image: url('../img/enemigo2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.enemigo3 {
+    width: 80px;
+    height: 50px;
+    background-image: url('../img/enemigo3.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.enemigo4 {
+    width: 80px;
+    height: 50px;
+    background-image: url('../img/enemigo4.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@keyframes aparecerEnemigo {
+    from {
+        opacity: 0;
+        transform: translateY(-50px); /* Empieza fuera de la pantalla */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Termina en su posición final */
+    }
+}
+
+@keyframes movimientoEnemigo {
+    0% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+}
+
+/* Estilos para las estadísticas */
+#lives, #times, #score {
+    position: absolute;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    padding: 15px 20px;
+    border-radius: 12px;
+    text-shadow: 2px 2px 5px #000;
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.8);
+    border: 3px solid #fff; /* Borde blanco */
+    animation: pulso 1.5s infinite; /* Efecto de pulso constante */
+}
+
+#lives {
+    top: 10px;
+    left: 10px;
+    font-size: 2.5em;
+    color: #f5d300; /* Color dorado */
+    background: linear-gradient(145deg, rgba(0,0,0,0.7), rgba(0,0,0,0.9)); /* Gradiente oscuro */
+}
+
+#lives i {
+    color: red;
+    font-size: 1.5em;
+}
+
+#times {
+    top: 10px;
+    right: 10px;
+    font-size: 2.5em;
+    color: #ff6f6f; /* Color coral */
+    background: linear-gradient(145deg, rgba(0,0,0,0.7), rgba(0,0,0,0.9)); /* Gradiente oscuro */
+}
+
+#score {
+    top: 10px;
+    left: 200px;
+    font-size: 2.5em;
+    color: #a2ff5b; /* Color verde neón */
+    background: linear-gradient(145deg, rgba(0,0,0,0.7), rgba(0,0,0,0.9)); /* Gradiente oscuro */
+}
+
+#score i {
+    color: #a2ff5b;
+}
+
+/* Animaciones */
+@keyframes pulso {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Estilos para el modal de instrucciones */
+#instructions {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#instructions-content {
+    background: #333;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#instructions h1 {
+    margin-bottom: 20px;
+}
+
+#instructions ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#instructions li {
+    margin: 10px 0;
+}
+
+#start-button {
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#start-button:hover {
+    background: #45a049;
+}
